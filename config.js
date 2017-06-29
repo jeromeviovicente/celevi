@@ -1,5 +1,5 @@
 module.exports = {
-	port 			: process.env.PORT || 8080,
+	port 			: process.env.PORT || 1337,
 	database 		: 'mongodb://admin:passw0rd@ds032340.mlab.com:32340/celevi',
 	domain  	 	: 'http://celevi.azurewebsites.net',
 	tokenKey 		: 'celevi-key',
