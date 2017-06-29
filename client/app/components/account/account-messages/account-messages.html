@@ -1,0 +1,96 @@
+<div class="row">
+
+	<div class="col-xs-12 col-sm-6">
+		
+		<div class="panel panel-default">
+			
+			<div class="panel-heading">Messages</div>
+
+			<ul class="list-group vertical-scroll">
+
+				<a href="" class="list-group-item" ng-repeat="chat in chats" ng-click="read(chat._id)">
+					
+					<!-- <img src="images/p1.jpg" class="img-circle image-small"> -->
+
+					<img ng-src="images/{{chat.receivers[0].image.filename || 'p1.jpg'}}" class="img-circle image-small">
+					
+					<span>{{ chat.receivers[0].firstName }} {{ chat.receivers[0].lastName }}</span>
+					
+					<!-- <span class="badge pull-right maroon-badge" style="margin-top: 35px">4</span> -->
+
+					<span class="truncate">
+					
+						{{ chat.messages[chat.messagesLength].user.firstName }} {{ chat.messages[chat.messagesLength].user.lastName }}: {{ chat.messages[chat.messagesLength].string }}
+
+						<span class="ultra-small pull-right">{{ chat.messages[chat.messagesLength].date | date : "h.mm a" }}</span>
+						
+					</span>
+
+				</a>
+
+			</ul>
+		
+		</div>
+
+	</div>
+
+	<div class="col-xs-12 col-sm-6">
+		
+		<div class="panel panel-default">
+			
+			<div class="panel-heading">
+				
+				{{ chat.receivers[0].firstName }} {{ chat.receivers[0].lastName }}
+
+				<span class="ultra-small pull-right"></span>
+
+			</div>
+
+			<div class="panel-body vertical-scroll">
+				
+				<ul class="list-group chat">
+
+					<li class="list-group-item chat-item chat-item-left" ng-repeat="message in chat.messages | orderBy: 'date'" ng-class="{'chat-item-right': message.sender}">
+<!-- 
+					<li class="list-group-item chat-item chat-item-left" ng-repeat="message in chat.messages | orderBy: 'date': true" ng-class="{'chat-item-right': message.sender}"> -->
+
+						<img ng-src="images/{{message.user.image.filename || 'p1.jpg'}}" class="img-circle image-small">
+								
+						
+						<span>{{ message.user.firstName }} {{ message.user.lastName }}</span>
+					
+						<p>
+
+							{{ message.string }}
+						
+						</p>
+
+						<span class="ultra-small pull-right" style="margin-top: -25px;">{{ message.date | date : "h.mm a" }}</span>
+
+					</li>
+
+				</ul>
+
+			</div>
+
+			<div class="panel-footer">
+				
+				<div class="form-group input-group">
+	  			
+	      			<input type="text" class="form-control" placeholder="Your message here..." ng-model="message.string">
+					
+					<span class="input-group-btn">
+					
+						<button type="button" class="btn btn-default" ng-click="appendMessage()">Send</button>
+					
+					</span>
+				
+				</div>	
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

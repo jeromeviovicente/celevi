@@ -1,0 +1,15 @@
+{
+  "name": "angular-datetime",
+  "homepage": "https://github.com/eight04/angular-datetime",
+  "version": "5.1.2",
+  "_release": "5.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v5.1.2",
+    "commit": "7389d7a2a86968b0c23428677601397a03085fab"
+  },
+  "_source": "https://github.com/eight04/angular-datetime.git",
+  "_target": "^5.1.2",
+  "_originalSource": "angular-datetime",
+  "_direct": true
+}

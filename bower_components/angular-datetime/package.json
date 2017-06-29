@@ -1,0 +1,59 @@
+{
+  "name": "angular-datetime-input",
+  "version": "5.1.2",
+  "description": "A directive to add the behavior of datetime input on unsupported browsers",
+  "keywords": [
+    "angular",
+    "datetime",
+    "input",
+    "time",
+    "parser"
+  ],
+  "scripts": {
+    "test": "eslint **/*.js && mocha",
+    "build": "browserify index.js | n-pipe dist/datetime.js && node build-demo.js",
+    "watch": "n-run -w lib/* \"npm run build\"",
+    "preversion": "npm test && npm run build",
+    "version": "git add .",
+    "postversion": "git push --follow-tags && npm publish"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "babelify"
+    ]
+  },
+  "browserify-shim": {
+    "custom-input": "global:customInput"
+  },
+  "homepage": "https://github.com/eight04/angular-datetime",
+  "bugs": {
+    "url": "https://github.com/eight04/angular-datetime/issues",
+    "email": "eight04@gmail.com"
+  },
+  "license": "MIT",
+  "author": "eight <eight04@gmail.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eight04/angular-datetime.git"
+  },
+  "dependencies": {
+    "angular": "^1.2.0",
+    "custom-input": "^0.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.2.0",
+    "babel-plugin-angularjs-annotate": "^0.6.0",
+    "babel-preset-env": "^1.1.4",
+    "browserify": "^14.1.0",
+    "browserify-shim": "^3.8.13",
+    "eslint": "^3.12.2",
+    "eslint-config-angular": "^0.4.0",
+    "eslint-plugin-angular": "^0.12.0",
+    "jsdom": "^9.11.0",
+    "jsdom-global": "^2.1.1",
+    "mocha": "^3.2.0",
+    "npm-build-tools": "^2.2.5"
+  }
+}
